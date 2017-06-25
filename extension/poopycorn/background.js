@@ -15,7 +15,9 @@ websocket.doSend("PaulSucksTurd.exe --with great joy.sh");
 
 function notify(message) {
   lastPost = message;
-  doSend(JSON.stringify(message));
+
+  doSend(JSON.stringify(message.data));
+
 }
 
 function onOpen(evt)

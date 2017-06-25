@@ -24,13 +24,10 @@ function getPosts(request, sender, sendResponse)
   } else if (undefined != request["markPosts"] && request["markPosts"] == "starting")
   {
 
-    visualizeResults(result);
-    console.log("pooooop");
+    visualizeResults(request.data);
     console.log(request.data);
     return;
   }
-  console.log("shit")
-
 }
 
 
