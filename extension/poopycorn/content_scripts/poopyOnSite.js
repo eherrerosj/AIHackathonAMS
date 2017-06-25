@@ -57,7 +57,7 @@ function getRelevantData (fbUserContent)
       title: titleEl,
       subtitle: subtitleEl,
       description: descriptionEl,
-      website: websiteEl,
+      url: websiteEl,
       poster: posterEl,
       id: convertToSlug( "poopicorn" + " " + posterEl.substring(0,12) + " " + titleEl.substring(0,12)),
 
