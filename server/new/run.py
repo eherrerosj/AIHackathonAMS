@@ -1,4 +1,5 @@
 import os
+import time
 import redis
 import tasks
 import configparser
@@ -53,12 +54,23 @@ def check(ws):
         if message is not None:
             js = (json.loads(message))
 
-            url = js['url']
-            job = q.enqueue_call(func=tasks.check_url, args=(url,model,), result_ttl=5000)
-            res = json.dumps({ 'result': job.get_id() })
-            ws.send(res)
+            job = q.enqueue_call(func=tasks.check_url, args=(js,model,), result_ttl=5000)
+
+            while not job.is_finished:
+                time.sleep(0.5)
+
+            result = job.result
+            
+            # print(dir(job))
+
+            # reult = job.wait_result(timeout=360)
+            
+            
+            # res = json.dumps({ 'result': job.get_id() })
+            ws.send(result)
 
 
+# Not used anymore :(
 @sockets.route('/result')
 def check(ws):
     while not ws.closed:
@@ -77,4 +89,5 @@ def check(ws):
 
 
 if __name__ == "__main__":
+    print('Starting server..')
     pywsgi.WSGIServer(('', server_port), app, log=stdout, handler_class=WebSocketHandler).serve_forever()
