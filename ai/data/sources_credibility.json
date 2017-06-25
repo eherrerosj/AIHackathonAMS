@@ -1,4 +1,46 @@
 {
+
+  "infowars.com" : {
+    "type" : "fake",
+    "2nd type" : "",
+    "3rd type" : "",
+    "Source Notes (things to know?)" : ""
+  },
+
+  "dailymail.co.uk" : {
+    "type" : "fake",
+    "2nd type" : "",
+    "3rd type" : "",
+    "Source Notes (things to know?)" : ""
+  },
+
+  "foxnews.com" : {
+    "type" : "bias",
+    "2nd type" : "",
+    "3rd type" : "",
+    "Source Notes (things to know?)" : ""
+  },
+
+  "thesun.com" : {
+    "type" : "hate",
+    "2nd type" : "",
+    "3rd type" : "",
+    "Source Notes (things to know?)" : ""
+  },
+
+  "mirror.co.uk" : {
+    "type" : "bias",
+    "2nd type" : "",
+    "3rd type" : "",
+    "Source Notes (things to know?)" : ""
+  },
+  "infowars.com" : {
+    "type" : "fake",
+    "2nd type" : "",
+    "3rd type" : "",
+    "Source Notes (things to know?)" : ""
+  },
+
   "100percentfedup.com" : {
     "type" : "bias",
     "2nd type" : "",
