@@ -1,9 +1,10 @@
 import time
+import json
 import newspaper
+import pandas
+import numpy
+import tldextract
 
-# from datetime import datetime
-
-# model = datetime.now().time().strftime('%H:%M:%S')
 
 def get_content(url):
    a = Article(url, language='en')
@@ -11,12 +12,21 @@ def get_content(url):
    a.parse()
    return u''.join(a.text).encode('utf-8').strip()
 
-def check_url(url, model):
+def check_url(js, model):
 
-	# Commented for now TODO do something here
-	# content = get_content(url)
-	content = url
+    url = js['url']
 
-	time.sleep(10)
+    # Commented for now TODO do something here
+    # content = get_content(url)
+    # content = url
 
-	return model.predict() # Dummy return val until connection to model is established
+    confidence = model.predict(js)
+
+
+    res = json.dumps({
+        'id': js['id'],
+        'fake': True if confidence > 0.5 else False,
+        'confidence': confidence
+    })
+
+    return res # Dummy return val until connection to model is established
